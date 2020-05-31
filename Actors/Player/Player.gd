@@ -11,7 +11,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	var dir = get_direction()*lerpCoficient
-	$KinematicBody2D.move_and_slide(dir*speed)
+	$Body.move_and_slide(dir*speed)
 	if dir == Vector2.ZERO:
 		lerpCoficient = lerpStart
 		$AnimationPlayer.current_animation = "idle"
@@ -27,7 +27,9 @@ func get_direction():
 	var x = left+right
 	var y = up+down
 	if left == -1:
-		$KinematicBody2D/AnimatedSprite.flip_h = true
+		$Body/AnimatedSprite.flip_h = true
+		$Body/Weapon_Holder.rotation_degrees = 300
 	elif right == 1:
-		$KinematicBody2D/AnimatedSprite.flip_h = false
+		$Body/AnimatedSprite.flip_h = false
+		$Body/Weapon_Holder.rotation_degrees = 60
 	return Vector2(x,y).normalized()
