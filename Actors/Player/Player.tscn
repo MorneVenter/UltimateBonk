@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Art/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Player/Player.gd" type="Script" id=2]
@@ -29,9 +29,92 @@ animations = [ {
 radius = 5.41043
 height = 6.19058
 
+[sub_resource type="Animation" id=8]
+resource_name = "hit_left"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Weapon_Holder:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 300.0, 210.0, 300.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/AnimatedSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "hit_right"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Weapon_Holder:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 60.0, 150.0, 60.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/AnimatedSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
-length = 0.1
+length = 0.5
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/AnimatedSprite:scale")
 tracks/0/interp = 1
@@ -39,10 +122,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body/AnimatedSprite:position")
@@ -51,10 +134,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -93,7 +176,7 @@ speed = 120
 [node name="Body" type="KinematicBody2D" parent="."]
 
 [node name="Weapon_Holder" type="Node2D" parent="Body"]
-rotation = 1.0472
+rotation = 5.23599
 
 [node name="Weapon_Base" parent="Body/Weapon_Holder" instance=ExtResource( 3 )]
 position = Vector2( 0.194, -23.721 )
@@ -107,5 +190,8 @@ playing = true
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hit_left = SubResource( 8 )
+anims/hit_right = SubResource( 7 )
 anims/idle = SubResource( 4 )
 anims/run = SubResource( 5 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
