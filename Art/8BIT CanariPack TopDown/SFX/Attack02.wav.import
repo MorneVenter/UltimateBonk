@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Attack02.wav-509e526db304a021e399782fe3c647c9.sample"
+
+[deps]
+
+source_file="res://Art/8BIT CanariPack TopDown/SFX/Attack02.wav"
+dest_files=[ "res://.import/Attack02.wav-509e526db304a021e399782fe3c647c9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
