@@ -58,10 +58,15 @@ func hit():
 	isAttacking = true
 	if facing_direction == 1:
 		$AnimationPlayer.current_animation = "hit_right"
+		$Body/PlayerHitRight/Right.disabled = false
 	elif facing_direction == -1:
 		$AnimationPlayer.current_animation = "hit_left"
+		$Body/PlayerHitLeft/Left.disabled = false
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "hit_left" or anim_name == "hit_right":
 		isAttacking = false
+		$Body/PlayerHitRight/Right.disabled = true
+		$Body/PlayerHitLeft/Left.disabled = true
+
