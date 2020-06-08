@@ -32,3 +32,4 @@ position = Vector2( 288, 160 )
 position = Vector2( 410.741, 174.574 )
 
 [node name="DootBar" parent="." instance=ExtResource( 4 )]
+[connection signal="update_doot_value" from="Cofalt" to="DootBar" method="_on_Cofalt_update_doot_value"]
