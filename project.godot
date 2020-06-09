@@ -25,9 +25,10 @@ SaveSystem="*res://SaveLoadGames/SaveSystem.gd"
 
 [display]
 
-window/size/width=640
+window/size/width=630
 window/size/height=360
 window/size/always_on_top=true
+window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
