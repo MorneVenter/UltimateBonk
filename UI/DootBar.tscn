@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/DootBar.gd" type="Script" id=1]
 [ext_resource path="res://Art/My Art/UI/currency_bar_back.png" type="Texture" id=2]
 [ext_resource path="res://Art/My Art/UI/doot_icon.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Humble Fonts/expression-pro-v1.1/ExpressionPro.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Art/My Art/UI/updoot_icon.png" type="Texture" id=5]
+[ext_resource path="res://Art/My Art/UI/exotic_doot_icon.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 22
+size = 20
 outline_size = 1
 outline_color = Color( 0.133333, 0.12549, 0.203922, 1 )
 extra_spacing_char = 1
@@ -20,18 +22,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_top = 79.0
-margin_right = 40.0
-margin_bottom = 93.0
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="BarContainer" type="HBoxContainer" parent="."]
 margin_right = 200.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 200, 35 )
@@ -41,30 +32,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExoticDoot" type="TextureRect" parent="HBoxContainer"]
+[node name="ExoticDoot" type="TextureRect" parent="BarContainer"]
 margin_right = 64.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="ExoticIcon" type="TextureRect" parent="HBoxContainer/ExoticDoot"]
+[node name="ExoticIcon" type="TextureRect" parent="BarContainer/ExoticDoot"]
 margin_left = 42.6667
 margin_top = 10.6667
 margin_right = 82.6667
 margin_bottom = 50.6667
 rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExoticLabel" type="Label" parent="HBoxContainer/ExoticDoot"]
+[node name="ExoticLabel" type="Label" parent="BarContainer/ExoticDoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.65804
-margin_top = 4.39478
+margin_top = 5.64478
 margin_right = -20.342
-margin_bottom = -9.60522
+margin_bottom = -8.35522
 custom_fonts/font = SubResource( 1 )
 text = "999"
 align = 1
@@ -74,31 +65,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Updoot" type="TextureRect" parent="HBoxContainer"]
+[node name="Updoot" type="TextureRect" parent="BarContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="UpIcon" type="TextureRect" parent="HBoxContainer/Updoot"]
+[node name="UpIcon" type="TextureRect" parent="BarContainer/Updoot"]
 margin_left = 42.7992
 margin_top = 10.6667
 margin_right = 82.7992
 margin_bottom = 50.6667
 rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpLabel" type="Label" parent="HBoxContainer/Updoot"]
+[node name="UpLabel" type="Label" parent="BarContainer/Updoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.57829
-margin_top = 4.35657
+margin_top = 5.60657
 margin_right = -20.4217
-margin_bottom = -9.64342
+margin_bottom = -8.39342
 custom_fonts/font = SubResource( 1 )
 text = "999"
 align = 1
@@ -108,13 +99,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Doot" type="TextureRect" parent="HBoxContainer"]
+[node name="Doot" type="TextureRect" parent="BarContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Doot"]
+[node name="TextureRect" type="TextureRect" parent="BarContainer/Doot"]
 margin_left = 42.6206
 margin_top = 10.6667
 margin_right = 82.6206
@@ -126,13 +117,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DootLabel" type="Label" parent="HBoxContainer/Doot"]
+[node name="DootLabel" type="Label" parent="BarContainer/Doot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.6118
-margin_top = 4.39478
+margin_left = 8.61181
+margin_top = 5.64478
 margin_right = -20.3882
-margin_bottom = -9.60522
+margin_bottom = -8.35522
 custom_fonts/font = SubResource( 1 )
 text = "999"
 align = 1

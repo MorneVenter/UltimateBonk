@@ -4,7 +4,14 @@ func _ready():
 	update_doot_value() 
 
 func update_doot_value():
-	$Label.text = str(SaveSystem.GetValue("doot_count"))
+	var totalDoots = SaveSystem.GetValue("doot_count")
+	var exoticDoots = int(totalDoots/1000000)
+	var upDoots = int((totalDoots % 1000000)/1000)
+	var doots = totalDoots - exoticDoots*1000000 - upDoots*1000
+	
+	$BarContainer/ExoticDoot/ExoticLabel.text = str(exoticDoots)
+	$BarContainer/Updoot/UpLabel.text = str(upDoots)
+	$BarContainer/Doot/DootLabel.text = str(doots)
 
 
 func _on_Cofalt_update_doot_value():
