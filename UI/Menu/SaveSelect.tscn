@@ -1,0 +1,295 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Menu/button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Menu/SaveSelect.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="SaveSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Saves" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="CenterContainer" parent="Saves"]
+margin_right = 136.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+
+[node name="SavesContainer" type="VBoxContainer" parent="Saves"]
+margin_left = 140.0
+margin_right = 390.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 250, 0 )
+alignment = 1
+
+[node name="Save1Button" type="Button" parent="Saves/SavesContainer"]
+margin_top = 16.0
+margin_right = 250.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 0, 65 )
+
+[node name="Name" type="Label" parent="Saves/SavesContainer/Save1Button"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -10.5
+margin_right = 108.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Save Slot 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Saves/SavesContainer/Save1Button"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -10.5
+margin_bottom = 10.5
+custom_fonts/font = SubResource( 2 )
+text = "<emtpy>"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteButton1" type="Button" parent="Saves/SavesContainer/Save1Button"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Saves/SavesContainer/Save1Button/DeleteButton1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.917647, 0.254902, 0.243137, 1 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save2Button" type="Button" parent="Saves/SavesContainer"]
+margin_top = 85.0
+margin_right = 250.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 65 )
+
+[node name="Name" type="Label" parent="Saves/SavesContainer/Save2Button"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -10.5
+margin_right = 108.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Save Slot 2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Saves/SavesContainer/Save2Button"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -10.5
+margin_bottom = 10.5
+custom_fonts/font = SubResource( 3 )
+text = "<emtpy>"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteButton2" type="Button" parent="Saves/SavesContainer/Save2Button"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Saves/SavesContainer/Save2Button/DeleteButton2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.917647, 0.254902, 0.243137, 1 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save3Button" type="Button" parent="Saves/SavesContainer"]
+margin_top = 154.0
+margin_right = 250.0
+margin_bottom = 219.0
+rect_min_size = Vector2( 0, 65 )
+
+[node name="Name" type="Label" parent="Saves/SavesContainer/Save3Button"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -10.5
+margin_right = 108.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Save Slot 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Saves/SavesContainer/Save3Button"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -10.5
+margin_bottom = 10.5
+custom_fonts/font = SubResource( 4 )
+text = "<emtpy>"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteButton3" type="Button" parent="Saves/SavesContainer/Save3Button"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Saves/SavesContainer/Save3Button/DeleteButton3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.917647, 0.254902, 0.243137, 1 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Saves/SavesContainer"]
+margin_top = 228.0
+margin_right = 250.0
+margin_bottom = 243.0
+
+[node name="Text" type="Label" parent="Saves/SavesContainer/BackButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="CenterContainer" parent="Saves"]
+margin_left = 394.0
+margin_right = 530.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+[connection signal="pressed" from="Saves/SavesContainer/Save1Button" to="." method="_on_Save1Button_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/Save1Button/DeleteButton1" to="." method="_on_DeleteButton1_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/Save2Button" to="." method="_on_Save2Button_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/Save2Button/DeleteButton2" to="." method="_on_DeleteButton2_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/Save3Button" to="." method="_on_Save3Button_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/Save3Button/DeleteButton3" to="." method="_on_DeleteButton3_pressed"]
+[connection signal="pressed" from="Saves/SavesContainer/BackButton" to="." method="_on_BackButton_pressed"]

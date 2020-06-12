@@ -6,8 +6,7 @@ var id: int = 1
 
 
 func _ready():
-	_loadData()
-	print("Save Data Loaded")
+	pass
 	
 func _loadData():
 	var save_path = SAVEFOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
