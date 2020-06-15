@@ -14,14 +14,6 @@ func showValue(value, travel, duration, spread, crit = false):
 		duration, 
 		Tween.TRANS_LINEAR, 
 		Tween.EASE_OUT)
-	$Tween.interpolate_property(
-		self, 
-		"modulate.a", 
-		1.0, 
-		0.0, 
-		duration, 
-		Tween.TRANS_LINEAR, 
-		Tween.EASE_IN_OUT)
 	if crit:
 		modulate = critColor
 		$Tween.interpolate_property(self, "rect_scale",

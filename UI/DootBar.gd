@@ -14,5 +14,5 @@ func update_doot_value():
 	$BarContainer/Doot/DootLabel.text = str(doots)
 
 
-func _on_Cofalt_update_doot_value():
-	update_doot_value() 
+func _on_Town_update_doot_value():
+	update_doot_value()
