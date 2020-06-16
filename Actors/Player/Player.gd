@@ -4,27 +4,34 @@ var lerpStart = 0.2
 var lerpCoficient = lerpStart
 var facing_direction= 1
 var isAttacking = false
+var isInInventoryScreen = false
+onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("hit_controller") and not isAttacking:
-		hit()
+	pass
 	
 func _physics_process(delta):
-	if not isAttacking:
+	if not isAttacking and not isInInventoryScreen:
 		movePlayer()
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:
-		if event.position.x >= $Body.global_position.x:
-			$Body/AnimatedSprite.flip_h = false
-			facing_direction = 1
-		else:
-			$Body/AnimatedSprite.flip_h = true
-			facing_direction = -1
-		hit()
+	if not isInInventoryScreen:
+		if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:
+			if event.position.x >= $Body.global_position.x:
+				$Body/AnimatedSprite.flip_h = false
+				facing_direction = 1
+			else:
+				$Body/AnimatedSprite.flip_h = true
+				facing_direction = -1
+			hit()
+		if Input.is_action_just_pressed("hit_controller") and not isAttacking:
+			hit()
+
+	if Input.is_action_just_pressed("ui_inventory_menu"):
+		toggleInventoryScreen()
 
 func movePlayer():
 	var dir = get_direction()*lerpCoficient
@@ -69,4 +76,16 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		isAttacking = false
 		$Body/PlayerHitRight/Right.disabled = true
 		$Body/PlayerHitLeft/Left.disabled = true
+		
+func toggleInventoryScreen():
+	print('test')
+	if isInInventoryScreen: #hide inventory
+		isInInventoryScreen = false
+		for n in $InventoryMenuHolder/Canvas.get_children():
+			n.queue_free()
+	else: #show inventory
+		isInInventoryScreen = true
+		var inv = InventoryScreen.instance()
+		inv.set_as_toplevel(true)
+		$InventoryMenuHolder/Canvas.add_child(inv)
 

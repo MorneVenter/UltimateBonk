@@ -31,7 +31,7 @@ tile_data = PoolIntArray( 196612, 3, 2, 327708, 3, 1, 393226, 3, 0, 524294, 3, 2
 position = Vector2( 288, 160 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 410.741, 174.574 )
+position = Vector2( 310, 180 )
 
 [node name="DootBar" parent="." instance=ExtResource( 4 )]
 [connection signal="update_doot_value" from="." to="DootBar" method="_on_Town_update_doot_value"]

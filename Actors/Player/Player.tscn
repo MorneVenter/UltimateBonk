@@ -40,10 +40,10 @@ animations = [ {
 radius = 5.41043
 height = 6.19058
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10.8286, 18.9687 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -83,7 +83,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -123,7 +123,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -151,7 +151,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.3
 loop = true
 step = 0.3
@@ -191,7 +191,7 @@ position = Vector2( 3, 1.81688 )
 texture = ExtResource( 5 )
 
 [node name="Weapon_Holder" type="Node2D" parent="Body"]
-rotation = 1.0472
+rotation = 5.23599
 
 [node name="Weapon_Base" parent="Body/Weapon_Holder" instance=ExtResource( 3 )]
 position = Vector2( 0.194, -23.721 )
@@ -217,19 +217,32 @@ shadow_filter = 3
 
 [node name="Left" type="CollisionShape2D" parent="Body/PlayerHitLeft"]
 position = Vector2( -16, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="PlayerHitRight" type="Area2D" parent="Body"]
 
 [node name="Right" type="CollisionShape2D" parent="Body/PlayerHitRight"]
 position = Vector2( 16, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hit_left = SubResource( 6 )
-anims/hit_right = SubResource( 7 )
-anims/idle = SubResource( 8 )
-anims/run = SubResource( 9 )
+anims/hit_left = SubResource( 7 )
+anims/hit_right = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/run = SubResource( 10 )
+
+[node name="InventoryMenuHolder" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 630.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canvas" type="CanvasLayer" parent="InventoryMenuHolder"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
