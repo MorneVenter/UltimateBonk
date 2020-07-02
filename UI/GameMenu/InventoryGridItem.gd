@@ -3,6 +3,7 @@ const weaponClass = preload("res://Items/Weapon_Item.gd")
 const skinClass = preload("res://Items/Skin_Item.gd")
 var item
 export var non_clickable = false
+signal newSkinEquipted
 
 func clear():
 	item = null
@@ -18,4 +19,6 @@ func setItem(itm):
 
 func _on_Button_pressed():
 	if non_clickable == false:
-		print(item)
+		if item is skinClass:
+			SaveSystem.StoreValue("current_skin", item.id)
+			emit_signal("newSkinEquipted", item.item_name)

@@ -82,6 +82,7 @@ func toggleInventoryScreen():
 		isInInventoryScreen = false
 		for n in $InventoryMenuHolder/Canvas.get_children():
 			n.queue_free()
+		changeSkin()
 	else: #show inventory
 		isInInventoryScreen = true
 		var inv = InventoryScreen.instance()

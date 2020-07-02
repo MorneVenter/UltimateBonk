@@ -2,6 +2,13 @@ extends Control
 
 var myInventory
 
+func _ready():
+	connectSignals()
+
+func connectSignals():
+	var slots = get_tree().get_nodes_in_group("InventoryGridItem")
+	for slt in slots:
+		slt.connect("newSkinEquipted", self, "updateSkin")
 
 func setInventory(inv):
 	myInventory = inv
@@ -26,6 +33,7 @@ func setEquipSkin():
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.setItem(ItemLoader.GetItem(1001))
 	else:
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.setItem(itm)
+		$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = itm.item_name
 
 func fillInventory():
 	var slots = get_tree().get_nodes_in_group("InventoryGridItem")
@@ -38,3 +46,8 @@ func fillInventory():
 			x+=1
 		slots[x].setItem(ItemLoader.GetItem(itm))
 		x += 1
+		
+func updateSkin(item_name: String):
+	$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = item_name
+	setAvatarSkin()
+	setEquipSkin()
