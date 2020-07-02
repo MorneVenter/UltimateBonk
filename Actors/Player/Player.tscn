@@ -8,31 +8,31 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 240, 16, 16 )
+region = Rect2( 64, 128, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 128, 16, 16 )
+region = Rect2( 144, 224, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 224, 16, 16 )
+region = Rect2( 144, 240, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
-"name": "second_char",
+"name": "base_Char",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
-"name": "base_Char",
+"name": "natalie",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "natalie",
+"name": "second_char",
 "speed": 5.0
 } ]
 
@@ -191,7 +191,7 @@ position = Vector2( 3, 1.81688 )
 texture = ExtResource( 5 )
 
 [node name="Weapon_Holder" type="Node2D" parent="Body"]
-rotation = 5.23599
+rotation = 1.0472
 
 [node name="Weapon_Base" parent="Body/Weapon_Holder" instance=ExtResource( 3 )]
 position = Vector2( 0.194, -23.721 )

@@ -1,11 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art/My Art/Shadows/BlackRect.png" type="Texture" id=1]
 [ext_resource path="res://Art/Tiny Adventure Pack Plus/Other/Misc/Grass.png" type="Texture" id=2]
+[ext_resource path="res://UI/GameMenu/InventoryGridItem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Art/0x72/0x72_16x16DungeonTileset.v4.png" type="Texture" id=5]
+[ext_resource path="res://UI/Menu/button_font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 128, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "Ned_Normal",
+"speed": 5.0
+} ]
 
 [node name="InventoryScreen" type="Control"]
 anchor_right = 1.0
@@ -48,24 +63,345 @@ __meta__ = {
 [node name="TabContainer" type="TabContainer" parent="MenuBackground"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 3.05176e-05
 custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Building" type="HBoxContainer" parent="MenuBackground/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 33.0
-margin_right = -456.0
-margin_bottom = -227.0
-
-[node name="Character" type="HBoxContainer" parent="MenuBackground/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 33.0
-margin_right = -456.0
-margin_bottom = -227.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Character" type="HBoxContainer" parent="MenuBackground/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+alignment = 1
+
+[node name="Inventory" type="ScrollContainer" parent="MenuBackground/TabContainer/Character"]
+margin_left = 25.0
+margin_right = 213.0
+margin_bottom = 263.0
+rect_min_size = Vector2( 188, 263 )
+scroll_horizontal_enabled = false
+
+[node name="InventoryGrid" type="VBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory"]
+margin_right = 176.0
+margin_bottom = 356.0
+
+[node name="Row1" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_right = 176.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row1" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row1" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row1" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row1" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row1" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row2" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 36.0
+margin_right = 176.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row2" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row2" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row2" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row2" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row2" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row3" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 72.0
+margin_right = 176.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row3" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row3" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row3" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row3" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row3" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row4" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 108.0
+margin_right = 176.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row4" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row4" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row4" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row4" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row4" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row5" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 144.0
+margin_right = 176.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row5" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row5" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row5" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row5" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row5" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row6" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 180.0
+margin_right = 176.0
+margin_bottom = 212.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row6" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row6" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row6" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row6" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row6" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row7" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 216.0
+margin_right = 176.0
+margin_bottom = 248.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row7" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row7" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row7" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row7" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row7" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row8" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 252.0
+margin_right = 176.0
+margin_bottom = 284.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row8" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row8" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row8" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row8" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row8" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row9" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 288.0
+margin_right = 176.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row9" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row9" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row9" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row9" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row9" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="Row10" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid"]
+margin_top = 324.0
+margin_right = 176.0
+margin_bottom = 356.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGridItem" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row10" instance=ExtResource( 3 )]
+
+[node name="InventoryGridItem2" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row10" instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_right = 68.0
+
+[node name="InventoryGridItem3" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row10" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_right = 104.0
+
+[node name="InventoryGridItem4" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row10" instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_right = 140.0
+
+[node name="InventoryGridItem5" parent="MenuBackground/TabContainer/Character/Inventory/InventoryGrid/Row10" instance=ExtResource( 3 )]
+margin_left = 144.0
+margin_right = 176.0
+
+[node name="PlayerView" type="TextureRect" parent="MenuBackground/TabContainer/Character"]
+margin_left = 217.0
+margin_right = 467.0
+margin_bottom = 263.0
+rect_min_size = Vector2( 250, 263 )
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="MenuBackground/TabContainer/Character/PlayerView"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -19.152
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelText" type="Label" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
+margin_top = 162.0
+margin_right = 250.0
+margin_bottom = 207.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ned
+Level 5"
+align = 1
+uppercase = true
+
+[node name="PlayerAvatar" type="AnimatedSprite" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
+position = Vector2( 122, 105 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 3 )
+animation = "Ned_Normal"
+
+[node name="GearArea" type="HBoxContainer" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
+margin_top = 211.0
+margin_right = 250.0
+margin_bottom = 243.0
+alignment = 1
+
+[node name="Weapon" parent="MenuBackground/TabContainer/Character/PlayerView/Container/GearArea" instance=ExtResource( 3 )]
+margin_left = 91.0
+margin_right = 123.0
+non_clickable = true
+
+[node name="Skin" parent="MenuBackground/TabContainer/Character/PlayerView/Container/GearArea" instance=ExtResource( 3 )]
+margin_left = 127.0
+margin_right = 159.0
+non_clickable = true

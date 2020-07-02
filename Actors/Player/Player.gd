@@ -78,7 +78,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Body/PlayerHitLeft/Left.disabled = true
 		
 func toggleInventoryScreen():
-	print('test')
 	if isInInventoryScreen: #hide inventory
 		isInInventoryScreen = false
 		for n in $InventoryMenuHolder/Canvas.get_children():
