@@ -14,3 +14,9 @@ func loadAllItems():
 	while item != "":
 		AllItems.append(load("res://Items/AllItems/" + item))
 		item = item_directory.get_next()
+
+func GetItem(id: int):
+	for itm in AllItems:
+		if itm.id == id:
+			return itm
+	return null

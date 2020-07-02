@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "ItemDetails",
 "language": "GDScript",
 "path": "res://Items/Items.gd"
+}, {
+"base": "Resource",
+"class": "Item_Skin",
+"language": "GDScript",
+"path": "res://Items/Skin_Item.gd"
+}, {
+"base": "Resource",
+"class": "Item_Weapon",
+"language": "GDScript",
+"path": "res://Items/Weapon_Item.gd"
 } ]
 _global_script_class_icons={
-"ItemDetails": "res://Custom Icons/Item.svg"
+"ItemDetails": "res://Custom Icons/Item.svg",
+"Item_Skin": "res://Custom Icons/Item.svg",
+"Item_Weapon": "res://Custom Icons/Item.svg"
 }
 
 [application]

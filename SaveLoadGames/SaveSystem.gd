@@ -1,5 +1,10 @@
 extends Node
-var data : Dictionary = {}
+# Sets initial variables
+var data : Dictionary = {
+	"inventory":[1001,1002], #Starting Inventory
+	"current_skin": 1001, #Ned Normal
+	"current_weapon": 2001 #Wood Sword
+}
 var SAVEFOLDER = "user://savedata"
 var SAVE_NAME_TEMPLATE = "save_%03d.save"
 var id: int = 1
@@ -24,10 +29,6 @@ func _init_save_file(savepath: String):
 	directory.make_dir(SAVEFOLDER)
 	var save_game = File.new()
 	save_game.open_encrypted_with_pass(savepath, File.WRITE, key)
-	data = {}
-	# Sets initial variables
-	data["current_skin"] = "ned_normal"
-	data["current_weapon"] = "wood_sword"
 	save_game.store_var(data)
 	save_game.close()
 	

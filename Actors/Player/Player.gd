@@ -87,10 +87,11 @@ func toggleInventoryScreen():
 		var inv = InventoryScreen.instance()
 		inv.set_as_toplevel(true)
 		$InventoryMenuHolder/Canvas.add_child(inv)
+		inv.setInventory($InventoryManager)
 
 func changeSkin():
 	var skin = SaveSystem.GetValue("current_skin")
-	if String(skin) == "0":
+	if skin == 0:
 		$Body/AnimatedSprite.animation = "ned_normal"
 	else:
-		$Body/AnimatedSprite.animation = skin
+		$Body/AnimatedSprite.animation = ItemLoader.GetItem(skin).item_skin_name

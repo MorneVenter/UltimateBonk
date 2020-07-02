@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/My Art/UI/grid_icon.png" type="Texture" id=1]
 [ext_resource path="res://UI/GameMenu/InventoryGridItem.gd" type="Script" id=2]
+[ext_resource path="res://Actors/Player/player_animator.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -46,4 +47,10 @@ enabled_focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 16, 16 )
+frames = ExtResource( 3 )
+animation = "wood_sword"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
