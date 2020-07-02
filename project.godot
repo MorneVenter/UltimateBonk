@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ItemDetails",
+"language": "GDScript",
+"path": "res://Items/Items.gd"
+} ]
 _global_script_class_icons={
-
+"ItemDetails": "res://Custom Icons/Item.svg"
 }
 
 [application]
@@ -22,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SaveSystem="*res://SaveLoadGames/SaveSystem.gd"
+ItemLoader="*res://Items/ItemLoader.gd"
 
 [display]
 

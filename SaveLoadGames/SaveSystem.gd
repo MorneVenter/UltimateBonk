@@ -24,6 +24,10 @@ func _init_save_file(savepath: String):
 	directory.make_dir(SAVEFOLDER)
 	var save_game = File.new()
 	save_game.open_encrypted_with_pass(savepath, File.WRITE, key)
+	data = {}
+	# Sets initial variables
+	data["current_skin"] = "ned_normal"
+	data["current_weapon"] = "wood_sword"
 	save_game.store_var(data)
 	save_game.close()
 	

@@ -8,7 +8,7 @@ var isInInventoryScreen = false
 onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
-	pass
+	changeSkin()
 
 func _process(delta):
 	pass
@@ -88,3 +88,9 @@ func toggleInventoryScreen():
 		inv.set_as_toplevel(true)
 		$InventoryMenuHolder/Canvas.add_child(inv)
 
+func changeSkin():
+	var skin = SaveSystem.GetValue("current_skin")
+	if String(skin) == "0":
+		$Body/AnimatedSprite.animation = "ned_normal"
+	else:
+		$Body/AnimatedSprite.animation = skin

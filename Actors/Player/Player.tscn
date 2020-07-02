@@ -1,49 +1,19 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Art/0x72/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
+[ext_resource path="res://Actors/Player/player_animator.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Actors/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/Weapon_Base.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/light_raduis2.png" type="Texture" id=4]
 [ext_resource path="res://Art/My Art/Shadows/shadow.png" type="Texture" id=5]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 128, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 144, 224, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 144, 240, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "base_Char",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "natalie",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 3 ) ],
-"loop": true,
-"name": "second_char",
-"speed": 5.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 5.41043
 height = 6.19058
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10.8286, 18.9687 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -59,7 +29,7 @@ tracks/0/keys = {
 "values": [ 300.0, 210.0, 300.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/AnimatedSprite:scale")
+tracks/1/path = NodePath("Body/AnimatedSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -68,10 +38,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/AnimatedSprite:position")
+tracks/2/path = NodePath("Body/AnimatedSprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -80,10 +50,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -99,7 +69,7 @@ tracks/0/keys = {
 "values": [ 60.0, 150.0, 60.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/AnimatedSprite:scale")
+tracks/1/path = NodePath("Body/AnimatedSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -108,10 +78,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/AnimatedSprite:position")
+tracks/2/path = NodePath("Body/AnimatedSprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -120,64 +90,64 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/AnimatedSprite:scale")
+tracks/0/path = NodePath("Body/AnimatedSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/AnimatedSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
 }
-
-[sub_resource type="Animation" id=10]
-length = 0.3
-loop = true
-step = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/AnimatedSprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.160463, 0.190693, 0.276756 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 0.8 ) ]
-}
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/AnimatedSprite:position")
+tracks/1/path = NodePath("Body/AnimatedSprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.3
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0, 0.160463, 0.246509, 0.27443 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -7 ), Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/AnimatedSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.160463, 0.190693, 0.276756 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 0.8 ) ]
 }
 
 [node name="Player" type="Node2D"]
@@ -197,12 +167,12 @@ rotation = 1.0472
 position = Vector2( 0.194, -23.721 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body"]
-frames = SubResource( 4 )
-animation = "base_Char"
+frames = ExtResource( 1 )
+animation = "chad_normal"
 playing = true
 
 [node name="Collider" type="CollisionShape2D" parent="Body"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="Body"]
 position = Vector2( -0.405838, 0.135277 )
@@ -217,21 +187,21 @@ shadow_filter = 3
 
 [node name="Left" type="CollisionShape2D" parent="Body/PlayerHitLeft"]
 position = Vector2( -16, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="PlayerHitRight" type="Area2D" parent="Body"]
 
 [node name="Right" type="CollisionShape2D" parent="Body/PlayerHitRight"]
 position = Vector2( 16, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hit_left = SubResource( 7 )
-anims/hit_right = SubResource( 8 )
-anims/idle = SubResource( 9 )
-anims/run = SubResource( 10 )
+anims/hit_left = SubResource( 6 )
+anims/hit_right = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/run = SubResource( 9 )
 
 [node name="InventoryMenuHolder" type="Control" parent="."]
 anchor_left = 0.5

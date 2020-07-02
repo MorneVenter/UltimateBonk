@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Items/Items.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = 1
+item_name = "Ned"
+item_description = "This is Ned."
+item_type = 1
+item_skin_name = "ned_normal"
+item_weapon_name = "woord_sword"
+lower_weapon_damage = 0
+upper_weapon_damage = 4
