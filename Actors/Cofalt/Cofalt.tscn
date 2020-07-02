@@ -146,6 +146,7 @@ anims/idle = SubResource( 5 )
 
 [node name="FloatingTextManager" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -22 )
+z_index = 1
 travel = Vector2( 0, -50 )
 duration = 0.6
 spread = 1.571
