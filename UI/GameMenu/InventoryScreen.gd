@@ -9,6 +9,7 @@ func connectSignals():
 	var slots = get_tree().get_nodes_in_group("InventoryGridItem")
 	for slt in slots:
 		slt.connect("newSkinEquipted", self, "updateSkin")
+		slt.connect("newWeaponEquipted", self, "updateWeapon")
 
 func setInventory(inv):
 	myInventory = inv
@@ -17,6 +18,7 @@ func setInventory(inv):
 func refreshInventory():
 	setAvatarSkin()
 	setEquipSkin()
+	setEquipWeapon()
 	fillInventory()
 	
 func setAvatarSkin():
@@ -34,6 +36,16 @@ func setEquipSkin():
 	else:
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.setItem(itm)
 		$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = itm.item_name
+		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.PlayEquipAnimation()
+
+func setEquipWeapon():
+	var wep = SaveSystem.GetValue("current_weapon")
+	var itm = ItemLoader.GetItem(wep)
+	if itm == null:
+		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Weapon.setItem(ItemLoader.GetItem(2001))
+	else:
+		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Weapon.setItem(itm)
+		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Weapon.PlayEquipAnimation()
 
 func fillInventory():
 	var slots = get_tree().get_nodes_in_group("InventoryGridItem")
@@ -51,3 +63,6 @@ func updateSkin(item_name: String):
 	$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = item_name
 	setAvatarSkin()
 	setEquipSkin()
+
+func updateWeapon():
+	setEquipWeapon()

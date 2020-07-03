@@ -5,10 +5,12 @@ var lerpCoficient = lerpStart
 var facing_direction= 1
 var isAttacking = false
 var isInInventoryScreen = false
+var mySkinItem
 onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
 	changeSkin()
+	changeWeapon()
 
 func _process(delta):
 	pass
@@ -83,6 +85,7 @@ func toggleInventoryScreen():
 		for n in $InventoryMenuHolder/Canvas.get_children():
 			n.queue_free()
 		changeSkin()
+		changeWeapon()
 	else: #show inventory
 		isInInventoryScreen = true
 		var inv = InventoryScreen.instance()
@@ -92,7 +95,16 @@ func toggleInventoryScreen():
 
 func changeSkin():
 	var skin = SaveSystem.GetValue("current_skin")
-	if skin == 0:
+	mySkinItem = ItemLoader.GetItem(skin)
+	if mySkinItem == null:
 		$Body/AnimatedSprite.animation = "ned_normal"
 	else:
-		$Body/AnimatedSprite.animation = ItemLoader.GetItem(skin).item_skin_name
+		$Body/AnimatedSprite.animation = mySkinItem.item_skin_name
+
+func changeWeapon():
+	var wep = SaveSystem.GetValue("current_weapon")
+	var itm = ItemLoader.GetItem(wep)
+	if itm == null:
+		$Body/Weapon_Holder/Weapon_Base.setWeapon(ItemLoader.GetItem(2001))
+	else:
+		$Body/Weapon_Holder/Weapon_Base.setWeapon(itm)

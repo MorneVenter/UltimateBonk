@@ -165,7 +165,7 @@ texture = ExtResource( 5 )
 rotation = 1.0472
 
 [node name="Weapon_Base" parent="Body/Weapon_Holder" instance=ExtResource( 3 )]
-position = Vector2( 0.194, -23.721 )
+position = Vector2( 0.194, -23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body"]
 frames = ExtResource( 1 )
