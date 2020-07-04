@@ -84,6 +84,7 @@ func deleteItemCheck():
 		$DeleteTimer.start()
 	if not has_focus:
 		$DeleteTimer.stop()
+		$DeleteProgress.value = 0
 
 
 func _on_DeleteTimer_timeout():
