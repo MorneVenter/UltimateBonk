@@ -10,6 +10,7 @@ func connectSignals():
 	for slt in slots:
 		slt.connect("newSkinEquipted", self, "updateSkin")
 		slt.connect("newWeaponEquipted", self, "updateWeapon")
+		slt.connect("deleteItem", self, "deleteItemFromInv")
 
 func setInventory(inv):
 	myInventory = inv
@@ -59,10 +60,26 @@ func fillInventory():
 		slots[x].setItem(ItemLoader.GetItem(itm))
 		x += 1
 		
-func updateSkin(item_name: String):
-	$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = item_name
+func updateSkin(id: int):
+	myInventory.RemoveItem(id)
+	myInventory.AddItem(SaveSystem.GetValue("current_skin"))
+	SaveSystem.StoreValue("current_skin", id)
+	$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = ItemLoader.GetItem(id).item_name
 	setAvatarSkin()
 	setEquipSkin()
+	fillInventory()
 
-func updateWeapon():
+func updateWeapon(id: int):
+	myInventory.RemoveItem(id)
+	myInventory.AddItem(SaveSystem.GetValue("current_weapon"))
+	SaveSystem.StoreValue("current_weapon", id)
 	setEquipWeapon()
+	fillInventory()
+
+func deleteItemFromInv(id: int):
+	myInventory.RemoveItem(id)
+	fillInventory()
+
+
+func _on_QuitButton_pressed():
+	get_tree().change_scene("res://UI/Menu/TitleScreen.tscn")

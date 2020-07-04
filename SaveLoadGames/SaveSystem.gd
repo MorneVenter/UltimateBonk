@@ -1,7 +1,7 @@
 extends Node
 # Sets initial variables
 var data : Dictionary = {
-	"inventory":[1001,1002, 2001, 2002], #Starting Inventory
+	"inventory":[1002, 2002], #Starting Inventory
 	"current_skin": 1001, #Ned Normal
 	"current_weapon": 2001 #Wood Sword
 }

@@ -403,3 +403,15 @@ non_clickable = true
 margin_left = 127.0
 margin_right = 159.0
 non_clickable = true
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 504.0
+margin_top = 328.0
+margin_right = 568.0
+margin_bottom = 355.0
+custom_fonts/font = ExtResource( 6 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

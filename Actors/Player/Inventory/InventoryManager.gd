@@ -16,6 +16,7 @@ func AddItem(id: int):
 	if myInventory.size() >= max_inventory_size:
 		return false
 	myInventory.append(id)
+	myInventory.sort()
 	_updateInventory()
 	return true
 	

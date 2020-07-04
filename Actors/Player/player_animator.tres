@@ -4,48 +4,48 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 160, 224, 16, 16 )
+region = Rect2( 144, 240, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 240, 16, 16 )
+region = Rect2( 144, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 16, 32 )
+region = Rect2( 160, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 160, 0, 16, 32 )
+region = Rect2( 64, 128, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 128, 16, 16 )
+region = Rect2( 160, 224, 16, 16 )
 
 [resource]
 animations = [ {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
-"name": "chad_normal",
+"name": "grog_normal",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
-"name": "grog_normal",
+"name": "wood_sword",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "wood_sword",
+"name": "wood_sword_upgrade",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
-"name": "wood_sword_upgrade",
+"name": "ned_normal",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
 "loop": true,
-"name": "ned_normal",
+"name": "chad_normal",
 "speed": 5.0
 } ]
