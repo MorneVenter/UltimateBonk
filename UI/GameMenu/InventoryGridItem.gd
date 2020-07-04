@@ -12,12 +12,19 @@ func _ready():
 	$PopupLayer/Popup.visible = false
 
 func _process(delta):
-	if has_focus and not non_clickable:
-		deleteItemCheck()
+	deleteItemCheck()
+
+func _input(event):
+	if event.is_action_released("ui_secondary_action"):
+		$DeleteProgress.value = 0
+		$DeleteTimer.stop()
 
 func clear():
+	$DeleteTimer.stop()
 	item = null
+	$DeleteProgress.value = 0
 	$Sprite.visible = false
+	$PopupLayer/Popup.visible = false
 
 func setItem(itm):
 	item = itm
@@ -71,6 +78,14 @@ func _on_Button_mouse_exited():
 		hidePopup()
 		
 func deleteItemCheck():
-	if Input.is_action_just_pressed("ui_secondary_action"):
-		hidePopup()
-		emit_signal("deleteItem", item.id)
+	if not $DeleteTimer.time_left == 0:
+		$DeleteProgress.value = (1 - $DeleteTimer.time_left/$DeleteTimer.wait_time)*100
+	if has_focus and not non_clickable and Input.is_action_just_pressed("ui_secondary_action"):
+		$DeleteTimer.start()
+	if not has_focus:
+		$DeleteTimer.stop()
+
+
+func _on_DeleteTimer_timeout():
+	hidePopup()
+	emit_signal("deleteItem", item.id)
