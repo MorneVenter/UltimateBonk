@@ -48,13 +48,21 @@ func PlayEquipAnimation():
 	$AnimationPlayer.play("equip")
 	
 func _setTooltip():
-	$PopupLayer/Popup/TextureRect/NameText.bbcode_text = '[center]' + String(item.item_name) + '[/center]'
+	$PopupLayer/Popup/TextureRect/NameText.bbcode_text = \
+		String('[color=%c][center]%s[/center][/color]').replace('%s', String(item.item_name)).\
+		replace('%c', item.GetRarityColor())
 	$PopupLayer/Popup/TextureRect/DescriptionText.bbcode_text = item.item_description
+	$PopupLayer/Popup/TextureRect/Rarity.bbcode_text = \
+		String('[right]%s[/right]').replace('%s', item.GetRarityText())
 	if item is weaponClass:
-		$PopupLayer/Popup/TextureRect/StatText.bbcode_text = '[center]' + String(item.lower_weapon_damage) + \
-		'-' + String(item.upper_weapon_damage) + '[/center]'
-		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = 'Damage Per Swing'
+		$PopupLayer/Popup/TextureRect/LowerDmg.bbcode_text = \
+			String('[right]%s[/right]').replace('%s', String(item.lower_weapon_damage))
+		$PopupLayer/Popup/TextureRect/UpperDmg.bbcode_text = String(item.upper_weapon_damage)
+		$PopupLayer/Popup/TextureRect/StatText.bbcode_text = '[center]To[/center]'
+		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = '[right]Damage Per Swing[/right]'
 	else:
+		$PopupLayer/Popup/TextureRect/LowerDmg.bbcode_text = ''
+		$PopupLayer/Popup/TextureRect/UpperDmg.bbcode_text = ''
 		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = ''
 		$PopupLayer/Popup/TextureRect/StatText.bbcode_text = ''
 
@@ -62,6 +70,9 @@ func _setTooltip():
 func showPopup():
 	$PopupLayer/Popup.visible = true
 	$PopupLayer/Popup.rect_position = rect_global_position
+	print($PopupLayer/Popup.rect_position)
+	if $PopupLayer/Popup.rect_position.y > 260:
+		$PopupLayer/Popup.rect_position.y -= 26
 	has_focus = true
 	
 func hidePopup():

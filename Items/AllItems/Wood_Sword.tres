@@ -7,6 +7,7 @@ script = ExtResource( 1 )
 id = 2001
 item_name = "Wood Sword"
 item_description = "A sword of wood."
+rarity = 1
 item_weapon_name = "wood_sword"
 lower_weapon_damage = 1
 upper_weapon_damage = 2

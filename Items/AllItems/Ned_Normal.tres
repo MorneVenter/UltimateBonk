@@ -7,4 +7,5 @@ script = ExtResource( 1 )
 id = 1001
 item_name = "Ned"
 item_description = "This is Ned."
+rarity = 4
 item_skin_name = "ned_normal"
