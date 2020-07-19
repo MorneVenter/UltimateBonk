@@ -6,6 +6,7 @@ var facing_direction= 1
 var isAttacking = false
 var isInInventoryScreen = false
 var mySkinItem
+var canToggleInventory = true;
 onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
@@ -80,19 +81,22 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Body/PlayerHitLeft/Left.disabled = true
 		
 func toggleInventoryScreen():
-	if isInInventoryScreen: #hide inventory
-		isInInventoryScreen = false
-		for n in $InventoryMenuHolder/Canvas.get_children():
-			n.queue_free()
-		changeSkin()
-		changeWeapon()
-	else: #show inventory
-		isInInventoryScreen = true
-		var inv = InventoryScreen.instance()
-		inv.set_as_toplevel(true)
-		$InventoryMenuHolder/Canvas.add_child(inv)
-		inv.setInventory($InventoryManager)
-
+	if canToggleInventory:
+		canToggleInventory = false
+		if isInInventoryScreen: #hide inventory
+			var child = $InventoryMenuHolder/Canvas.get_children()
+			for n in child:
+				n.queue_free()
+			changeSkin()
+			changeWeapon()
+			isInInventoryScreen = false
+		else: #show inventory
+			isInInventoryScreen = true
+			var inv = InventoryScreen.instance()
+			inv.set_as_toplevel(true)
+			$InventoryMenuHolder/Canvas.add_child(inv)
+			inv.setInventory($InventoryManager)
+		$InventoryTimer.start()
 func changeSkin():
 	var skin = SaveSystem.GetValue("current_skin")
 	mySkinItem = ItemLoader.GetItem(skin)
@@ -108,3 +112,7 @@ func changeWeapon():
 		$Body/Weapon_Holder/Weapon_Base.setWeapon(ItemLoader.GetItem(2001))
 	else:
 		$Body/Weapon_Holder/Weapon_Base.setWeapon(itm)
+
+
+func _on_InventoryTimer_timeout():
+	canToggleInventory = true

@@ -6,8 +6,8 @@
 [ext_resource path="res://Art/My Art/Shadows/shadow_big.png" type="Texture" id=4]
 [ext_resource path="res://UI/FloatingTextManager.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.0123, 34.4198 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 32.9848
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 26.5884, 32.289 )
@@ -132,7 +132,7 @@ texture = ExtResource( 1 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 
 [node name="TriggerArea" type="Area2D" parent="."]
 
