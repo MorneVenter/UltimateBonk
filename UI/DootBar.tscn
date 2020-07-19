@@ -22,7 +22,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BarContainer" type="HBoxContainer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="BarContainer" type="HBoxContainer" parent="Canvas"]
 margin_right = 200.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 200, 35 )
@@ -32,12 +34,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExoticDoot" type="TextureRect" parent="BarContainer"]
+[node name="ExoticDoot" type="TextureRect" parent="Canvas/BarContainer"]
 margin_right = 64.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="ExoticIcon" type="TextureRect" parent="BarContainer/ExoticDoot"]
+[node name="ExoticIcon" type="TextureRect" parent="Canvas/BarContainer/ExoticDoot"]
 margin_left = 42.6667
 margin_top = 10.6667
 margin_right = 82.6667
@@ -49,7 +51,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExoticLabel" type="Label" parent="BarContainer/ExoticDoot"]
+[node name="ExoticLabel" type="Label" parent="Canvas/BarContainer/ExoticDoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.65804
@@ -65,13 +67,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Updoot" type="TextureRect" parent="BarContainer"]
+[node name="Updoot" type="TextureRect" parent="Canvas/BarContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="UpIcon" type="TextureRect" parent="BarContainer/Updoot"]
+[node name="UpIcon" type="TextureRect" parent="Canvas/BarContainer/Updoot"]
 margin_left = 42.7992
 margin_top = 10.6667
 margin_right = 82.7992
@@ -83,7 +85,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpLabel" type="Label" parent="BarContainer/Updoot"]
+[node name="UpLabel" type="Label" parent="Canvas/BarContainer/Updoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.57829
@@ -99,13 +101,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Doot" type="TextureRect" parent="BarContainer"]
+[node name="Doot" type="TextureRect" parent="Canvas/BarContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 35.0
 texture = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="BarContainer/Doot"]
+[node name="TextureRect" type="TextureRect" parent="Canvas/BarContainer/Doot"]
 margin_left = 42.6206
 margin_top = 10.6667
 margin_right = 82.6206
@@ -117,7 +119,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DootLabel" type="Label" parent="BarContainer/Doot"]
+[node name="DootLabel" type="Label" parent="Canvas/BarContainer/Doot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.61181

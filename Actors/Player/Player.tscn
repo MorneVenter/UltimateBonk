@@ -198,6 +198,9 @@ position = Vector2( 16, 0 )
 shape = SubResource( 2 )
 disabled = true
 
+[node name="Camera2D" type="Camera2D" parent="Body"]
+current = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hit_left = SubResource( 3 )
 anims/hit_right = SubResource( 4 )
