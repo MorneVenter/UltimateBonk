@@ -55,16 +55,16 @@ func _setTooltip():
 	$PopupLayer/Popup/TextureRect/Rarity.bbcode_text = \
 		String('[right]%s[/right]').replace('%s', item.GetRarityText())
 	if item is weaponClass:
-		$PopupLayer/Popup/TextureRect/LowerDmg.bbcode_text = \
-			String('[right]%s[/right]').replace('%s', String(item.lower_weapon_damage))
-		$PopupLayer/Popup/TextureRect/UpperDmg.bbcode_text = String(item.upper_weapon_damage)
-		$PopupLayer/Popup/TextureRect/StatText.bbcode_text = '[center]To[/center]'
+		$PopupLayer/Popup/TextureRect/DamageRange.bbcode_text = \
+			String('%l to %u').replace('%l', String(item.lower_weapon_damage)) \
+			.replace('%u', String(item.upper_weapon_damage))
 		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = '[right]Damage Per Swing[/right]'
+		$PopupLayer/Popup/TextureRect/CritText.bbcode_text = \
+			String('%s% Crit Chance').replace('%s', item.GetCritDisplayNumber())
 	else:
-		$PopupLayer/Popup/TextureRect/LowerDmg.bbcode_text = ''
-		$PopupLayer/Popup/TextureRect/UpperDmg.bbcode_text = ''
+		$PopupLayer/Popup/TextureRect/DamageRange.bbcode_text = ''
 		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = ''
-		$PopupLayer/Popup/TextureRect/StatText.bbcode_text = ''
+		$PopupLayer/Popup/TextureRect/CritText.bbcode_text = ''
 
 
 func showPopup():
