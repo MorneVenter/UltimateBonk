@@ -1,5 +1,9 @@
 extends Node2D
-export var speed = 100
+export var speed = 120
+
+var weaponDamage = Vector2(1,1)
+var weaponCrit = 0
+
 var lerpStart = 0.2
 var lerpCoficient = lerpStart
 var facing_direction= 1
@@ -7,6 +11,8 @@ var isAttacking = false
 var isInInventoryScreen = false
 var mySkinItem
 var canToggleInventory = true;
+var rng = RandomNumberGenerator.new()
+
 onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
@@ -97,6 +103,7 @@ func toggleInventoryScreen():
 			$InventoryMenuHolder/Canvas.add_child(inv)
 			inv.setInventory($InventoryManager)
 		$InventoryTimer.start()
+
 func changeSkin():
 	var skin = SaveSystem.GetValue("current_skin")
 	mySkinItem = ItemLoader.GetItem(skin)
@@ -111,8 +118,19 @@ func changeWeapon():
 	if itm == null:
 		$Body/Weapon_Holder/Weapon_Base.setWeapon(ItemLoader.GetItem(2001))
 	else:
+		weaponDamage = Vector2(itm.lower_weapon_damage, itm.upper_weapon_damage)
+		weaponCrit = itm.weapon_crit
 		$Body/Weapon_Holder/Weapon_Base.setWeapon(itm)
 
+func getHitData():
+	rng.randomize()
+	var my_dmg = rng.randi_range(weaponDamage.x, weaponDamage.y)
+	var crit_chance = rng.randf_range(0,1)
+	if weaponCrit >= crit_chance:
+		my_dmg = int(round(my_dmg + my_dmg*0.7))
+		return [my_dmg, 1]
+	else:
+		return [my_dmg, 0]
 
 func _on_InventoryTimer_timeout():
 	canToggleInventory = true

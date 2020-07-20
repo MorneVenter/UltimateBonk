@@ -1,7 +1,7 @@
 extends Label
 export var critColor: Color
 
-func showValue(value, travel, duration, spread, crit = false):
+func showValue(value, travel, duration, spread, crit):
 	text = value
 	var movement = travel.rotated(rand_range(-spread/2, spread/2))
 	rect_pivot_offset = rect_size/2

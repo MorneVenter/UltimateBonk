@@ -70,7 +70,6 @@ func _setTooltip():
 func showPopup():
 	$PopupLayer/Popup.visible = true
 	$PopupLayer/Popup.rect_position = rect_global_position
-	print($PopupLayer/Popup.rect_position)
 	if $PopupLayer/Popup.rect_position.y > 260:
 		$PopupLayer/Popup.rect_position.y -= 26
 	has_focus = true
