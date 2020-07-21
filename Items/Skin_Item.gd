@@ -1,7 +1,7 @@
 extends "res://Items/Items.gd"
 class_name Item_Skin, "res://Custom Icons/Item.svg"
 
-export(String) var item_skin_name = "ned_normal"
+export(String) var item_skin_name = "wood_armor"
 export(int) var lower_passive_doots = 1
 export(int) var upper_passive_doots = 2
 export(float) var speed_bonus = 0.1

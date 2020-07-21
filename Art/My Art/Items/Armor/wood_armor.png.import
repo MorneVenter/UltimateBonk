@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_raduis2.png-41e500e1bd40e4e983ad9e9ca125a193.stex"
+path="res://.import/wood_armor.png-44f2998f8b5604d148d79b3432d2e57b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/light_raduis2.png"
-dest_files=[ "res://.import/light_raduis2.png-41e500e1bd40e4e983ad9e9ca125a193.stex" ]
+source_file="res://Art/My Art/Items/Armor/wood_armor.png"
+dest_files=[ "res://.import/wood_armor.png-44f2998f8b5604d148d79b3432d2e57b.stex" ]
 
 [params]
 

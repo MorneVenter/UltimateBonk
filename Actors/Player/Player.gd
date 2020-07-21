@@ -19,6 +19,8 @@ var rng = RandomNumberGenerator.new()
 onready var InventoryScreen  = preload("res://UI/GameMenu/InventoryScreen.tscn")
 
 func _ready():
+	# set default player skin (Ned)
+	$Body/AnimatedSprite/PlayerSprite.animation = 'ned_normal'
 	changeSkin()
 	changeWeapon()
 
@@ -34,9 +36,11 @@ func _input(event):
 		if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:
 			if event.position.x >= $Body.global_position.x:
 				$Body/AnimatedSprite.flip_h = false
+				$Body/AnimatedSprite/PlayerSprite.flip_h = false
 				facing_direction = 1
 			else:
 				$Body/AnimatedSprite.flip_h = true
+				$Body/AnimatedSprite/PlayerSprite.flip_h = true
 				facing_direction = -1
 			hit()
 		if Input.is_action_just_pressed("hit_controller") and not isAttacking:
@@ -65,10 +69,12 @@ func get_direction():
 	
 	if left == -1:
 		$Body/AnimatedSprite.flip_h = true
+		$Body/AnimatedSprite/PlayerSprite.flip_h = true
 		$Body/Weapon_Holder.rotation_degrees = 300
 		facing_direction = -1
 	elif right == 1:
 		$Body/AnimatedSprite.flip_h = false
+		$Body/AnimatedSprite/PlayerSprite.flip_h = false
 		$Body/Weapon_Holder.rotation_degrees = 60
 		facing_direction = 1
 	return Vector2(x,y).normalized()

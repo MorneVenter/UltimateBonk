@@ -7,7 +7,6 @@
 [ext_resource path="res://Art/My Art/Shadows/shadow.png" type="Texture" id=5]
 [ext_resource path="res://Actors/Player/Inventory/InventoryManager.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.41043
 height = 6.19058
@@ -170,8 +169,15 @@ rotation = 1.0472
 position = Vector2( 0.194, -23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Body"]
+z_index = 1
 frames = ExtResource( 1 )
-animation = "chad_normal"
+animation = "iron_armor"
+playing = true
+
+[node name="PlayerSprite" type="AnimatedSprite" parent="Body/AnimatedSprite"]
+z_as_relative = false
+frames = ExtResource( 1 )
+animation = "ned_normal"
 playing = true
 
 [node name="Collider" type="CollisionShape2D" parent="Body"]

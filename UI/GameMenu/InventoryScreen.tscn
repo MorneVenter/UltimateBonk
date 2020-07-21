@@ -8,7 +8,6 @@
 [ext_resource path="res://UI/MainMenu/button_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://UI/GameMenu/InventoryScreen.gd" type="Script" id=7]
 
-
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
 
@@ -61,6 +60,7 @@ __meta__ = {
 }
 
 [node name="Building" type="HBoxContainer" parent="MenuBackground/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -69,7 +69,6 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Character" type="HBoxContainer" parent="MenuBackground/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -365,15 +364,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nameText" type="Label" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
-margin_top = 161.0
-margin_right = 250.0
-margin_bottom = 182.0
-custom_fonts/font = ExtResource( 6 )
-text = "Ned"
-align = 1
-uppercase = true
-
 [node name="LevelText" type="Label" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
 margin_top = 186.0
 margin_right = 250.0
@@ -386,6 +376,13 @@ uppercase = true
 [node name="PlayerAvatar" type="AnimatedSprite" parent="MenuBackground/TabContainer/Character/PlayerView/Container"]
 position = Vector2( 122, 105 )
 scale = Vector2( 5, 5 )
+z_index = 1
+frames = ExtResource( 5 )
+animation = "iron_armor"
+
+[node name="CurrentPlayerSprite" type="AnimatedSprite" parent="MenuBackground/TabContainer/Character/PlayerView/Container/PlayerAvatar"]
+scale = Vector2( 1, 1 )
+z_as_relative = false
 frames = ExtResource( 5 )
 animation = "ned_normal"
 

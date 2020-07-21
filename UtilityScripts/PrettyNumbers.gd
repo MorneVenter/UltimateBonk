@@ -16,3 +16,10 @@ func GetPrettyNumber(num: int):
 	elif num >= 1000000000000:
 		var x = str(stepify(num/1000000000000.0, 0.1))+'T'
 		return str(x)
+		
+func GetPrettyDootCount(num):
+	var totalDoots = num
+	var exoticDoots = (totalDoots/10000000000)
+	var upDoots = ((totalDoots % 10000000000)/100000)
+	var doots = totalDoots - exoticDoots*10000000000 - upDoots*100000
+	return [exoticDoots, upDoots, doots]

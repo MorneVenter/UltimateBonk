@@ -38,7 +38,7 @@ func deleteSave(slotNumber):
 		elif slotNumber == 2:
 			$Saves/SavesContainer/Save2Button/Status.text = '<Empty>'
 		elif slotNumber == 3:
-			$Saves/SavesContainer/Save3Button/Status.text = '<Empty>'		
+			$Saves/SavesContainer/Save3Button/Status.text = '<Empty>'
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI/MainMenu/TitleScreen.tscn")

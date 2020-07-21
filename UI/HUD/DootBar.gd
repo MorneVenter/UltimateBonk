@@ -4,10 +4,14 @@ func _ready():
 	update_doot_value() 
 
 func update_doot_value():
+	# 100k Doots = 1 Updoot
+	# 100k Updoots = 1 Exotic Doot
+	
 	var totalDoots = (SaveSystem.GetValue("doot_count"))
-	var exoticDoots = (totalDoots/10000000000)
-	var upDoots = ((totalDoots % 10000000000)/100000)
-	var doots = totalDoots - exoticDoots*10000000000 - upDoots*100000
+	var pret_doots = PrettyNumbers.GetPrettyDootCount(totalDoots)
+	var exoticDoots = pret_doots[0]
+	var upDoots = pret_doots[1]
+	var doots = pret_doots[2]
 	
 	$Canvas/BarContainer/ExoticDoot/ExoticLabel.text = PrettyNumbers.GetPrettyNumber(exoticDoots)
 	$Canvas/BarContainer/Updoot/UpLabel.text = PrettyNumbers.GetPrettyNumber(upDoots)

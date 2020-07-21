@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource( 1 )
 id = 1001
-item_name = "Ned"
-item_description = "This is Ned."
+item_name = "Wood Armor"
+item_description = "Armor made out of wood. Not so sturdy."
 rarity = 4
-item_skin_name = "ned_normal"
+item_skin_name = "wood_armor"
 lower_passive_doots = 1
 upper_passive_doots = 2
 speed_bonus = 0.5

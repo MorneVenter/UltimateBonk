@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_raduis2.png-41e500e1bd40e4e983ad9e9ca125a193.stex"
+path="res://.import/iron_armor.png-91b92c894ae08905df9c9c602534381c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/light_raduis2.png"
-dest_files=[ "res://.import/light_raduis2.png-41e500e1bd40e4e983ad9e9ca125a193.stex" ]
+source_file="res://Art/My Art/Items/Armor/iron_armor.png"
+dest_files=[ "res://.import/iron_armor.png-91b92c894ae08905df9c9c602534381c.stex" ]
 
 [params]
 

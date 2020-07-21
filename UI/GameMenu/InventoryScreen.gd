@@ -4,7 +4,8 @@ var myInventory
 
 func _ready():
 	connectSignals()
-
+	$MenuBackground/TabContainer/Character/PlayerView/Container/PlayerAvatar/CurrentPlayerSprite.animation = "ned_normal"
+	
 func connectSignals():
 	var slots = get_tree().get_nodes_in_group("InventoryGridItem")
 	for slt in slots:
@@ -24,8 +25,8 @@ func refreshInventory():
 	
 func setAvatarSkin():
 	var skin = SaveSystem.GetValue("current_skin")
-	if skin == 0:
-		$MenuBackground/TabContainer/Character/PlayerView/Container/PlayerAvatar.animation = "ned_normal"
+	if skin == null:
+		$MenuBackground/TabContainer/Character/PlayerView/Container/PlayerAvatar.animation = "wood_armor"
 	else:
 		$MenuBackground/TabContainer/Character/PlayerView/Container/PlayerAvatar.animation = ItemLoader.GetItem(skin).item_skin_name
 
@@ -36,7 +37,6 @@ func setEquipSkin():
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.setItem(ItemLoader.GetItem(1001))
 	else:
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.setItem(itm)
-		$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = itm.item_name
 		$MenuBackground/TabContainer/Character/PlayerView/Container/GearArea/Skin.PlayEquipAnimation()
 
 func setEquipWeapon():
@@ -64,7 +64,6 @@ func updateSkin(id: int):
 	myInventory.RemoveItem(id)
 	myInventory.AddItem(SaveSystem.GetValue("current_skin"))
 	SaveSystem.StoreValue("current_skin", id)
-	$MenuBackground/TabContainer/Character/PlayerView/Container/nameText.text = ItemLoader.GetItem(id).item_name
 	setAvatarSkin()
 	setEquipSkin()
 	fillInventory()
