@@ -9,3 +9,6 @@ item_name = "Chad"
 item_description = "This is Chad."
 rarity = 2
 item_skin_name = "chad_normal"
+lower_passive_doots = 5
+upper_passive_doots = 6
+speed_bonus = -0.25

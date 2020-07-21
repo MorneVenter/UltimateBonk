@@ -1,8 +1,11 @@
 extends Node2D
 export var speed = 120
+var speed_bonus = 0
 
 var weaponDamage = Vector2(1,1)
 var weaponCrit = 0
+
+var passive_doots = Vector2(1,1)
 
 var lerpStart = 0.2
 var lerpCoficient = lerpStart
@@ -44,7 +47,7 @@ func _input(event):
 
 func movePlayer():
 	var dir = get_direction()*lerpCoficient
-	$Body.move_and_slide(dir*speed)
+	$Body.move_and_slide(dir*(speed+speed_bonus))
 	if dir == Vector2.ZERO:
 		lerpCoficient = lerpStart
 		$AnimationPlayer.current_animation = "idle"
@@ -110,6 +113,7 @@ func changeSkin():
 	if mySkinItem == null:
 		$Body/AnimatedSprite.animation = "ned_normal"
 	else:
+		speed_bonus = mySkinItem.speed_bonus*speed
 		$Body/AnimatedSprite.animation = mySkinItem.item_skin_name
 
 func changeWeapon():
@@ -122,7 +126,7 @@ func changeWeapon():
 		weaponCrit = itm.weapon_crit
 		$Body/Weapon_Holder/Weapon_Base.setWeapon(itm)
 
-func getHitData():
+func GetHitData():
 	rng.randomize()
 	var my_dmg = rng.randi_range(weaponDamage.x, weaponDamage.y)
 	var crit_chance = rng.randf_range(0,1)

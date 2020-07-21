@@ -8,11 +8,11 @@ func _on_TriggerArea_area_entered(area):
 	if area.name == "PlayerHitLeft":
 		var player = area.get_owner()
 		$AnimationPlayer.current_animation = "hit_left"
-		hit(player.getHitData())
+		hit(player.GetHitData())
 	elif area.name == "PlayerHitRight":
 		var player = area.get_owner()
 		$AnimationPlayer.current_animation = "hit_right"
-		hit(player.getHitData())
+		hit(player.GetHitData())
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -25,4 +25,4 @@ func hit(hitData):
 	var has_crit = true if crit==1 else false
 	var disp_string = '+' + str(dmg)
 	$FloatingTextManager.showValue(disp_string, has_crit)
-	get_parent().addDoots(dmg)
+	get_parent().AddDoots(dmg)
