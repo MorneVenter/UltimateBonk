@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 SaveSystem="*res://SaveLoadGames/SaveSystem.gd"
 ItemLoader="*res://Items/ItemLoader.gd"
+PrettyNumbers="*res://UtilityScripts/PrettyNumbers.gd"
 
 [display]
 

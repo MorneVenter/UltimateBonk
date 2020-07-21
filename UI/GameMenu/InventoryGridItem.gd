@@ -56,15 +56,15 @@ func _setTooltip():
 		String('[right]%s[/right]').replace('%s', item.GetRarityText())
 	if item is weaponClass:
 		$PopupLayer/Popup/TextureRect/DamageRange.bbcode_text = \
-			String('%l to %u').replace('%l', String(item.lower_weapon_damage)) \
-			.replace('%u', String(item.upper_weapon_damage))
+			String('%l to %u').replace('%l', PrettyNumbers.GetPrettyNumber(item.lower_weapon_damage)) \
+			.replace('%u', PrettyNumbers.GetPrettyNumber(item.upper_weapon_damage))
 		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = '[right]Damage Per Swing[/right]'
 		$PopupLayer/Popup/TextureRect/CritText.bbcode_text = \
 			String('%s% Crit Chance').replace('%s', item.GetCritDisplayNumber())
 	elif item is skinClass:
 		$PopupLayer/Popup/TextureRect/DamageRange.bbcode_text = \
-			String('%l to %u').replace('%l', String(item.lower_passive_doots)) \
-			.replace('%u', String(item.upper_passive_doots))
+			String('%l to %u').replace('%l', PrettyNumbers.GetPrettyNumber(item.lower_passive_doots)) \
+			.replace('%u', PrettyNumbers.GetPrettyNumber(item.upper_passive_doots))
 		$PopupLayer/Popup/TextureRect/DmgText.bbcode_text = '[right]Passive Doots[/right]'
 		$PopupLayer/Popup/TextureRect/CritText.bbcode_text = \
 			String('%s% Speed Bonus').replace('%s', item.GetSpeedDisplayNumber())

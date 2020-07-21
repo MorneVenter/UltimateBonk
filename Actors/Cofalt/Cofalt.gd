@@ -23,6 +23,6 @@ func hit(hitData):
 	var dmg = int(hitData[0])
 	var crit = int(hitData[1])
 	var has_crit = true if crit==1 else false
-	var disp_string = '+' + str(dmg)
+	var disp_string = '+' + PrettyNumbers.GetPrettyNumber(dmg)
 	$FloatingTextManager.showValue(disp_string, has_crit)
 	get_parent().AddDoots(dmg)
