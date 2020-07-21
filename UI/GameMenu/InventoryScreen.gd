@@ -82,4 +82,4 @@ func deleteItemFromInv(id: int):
 
 
 func _on_QuitButton_pressed():
-	get_tree().change_scene("res://UI/Menu/TitleScreen.tscn")
+	get_tree().change_scene("res://UI/MainMenu/TitleScreen.tscn")

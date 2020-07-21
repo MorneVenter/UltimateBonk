@@ -41,7 +41,7 @@ func deleteSave(slotNumber):
 			$Saves/SavesContainer/Save3Button/Status.text = '<Empty>'		
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://UI/Menu/TitleScreen.tscn")
+	get_tree().change_scene("res://UI/MainMenu/TitleScreen.tscn")
 
 func _on_Save1Button_pressed():
 	loadGame(1)

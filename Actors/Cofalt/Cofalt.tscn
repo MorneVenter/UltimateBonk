@@ -4,7 +4,8 @@
 [ext_resource path="res://Art/My Art/Cofalt/cofalt_base.png" type="Texture" id=2]
 [ext_resource path="res://Actors/Cofalt/Cofalt.gd" type="Script" id=3]
 [ext_resource path="res://Art/My Art/Shadows/shadow_big.png" type="Texture" id=4]
-[ext_resource path="res://UI/FloatingTextManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/FloatingText/FloatingTextManager.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 32.9848

@@ -5,7 +5,7 @@ func _ready():
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://UI/Menu/SaveSelect.tscn")
+	get_tree().change_scene("res://UI/MainMenu/SaveSelect.tscn")
 
 
 func _on_OptionsButton_pressed():
