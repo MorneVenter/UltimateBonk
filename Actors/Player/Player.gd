@@ -113,7 +113,7 @@ func changeSkin():
 	if mySkinItem == null:
 		$Body/AnimatedSprite.animation = "ned_normal"
 	else:
-		passive_doots =[mySkinItem.lower_passive_doots, mySkinItem.upper_passive_doots]
+		passive_doots =[mySkinItem.lower_passive_doots, mySkinItem	.upper_passive_doots]
 		speed_bonus = mySkinItem.speed_bonus*speed
 		$Body/AnimatedSprite.animation = mySkinItem.item_skin_name
 
